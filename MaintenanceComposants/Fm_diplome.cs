@@ -17,7 +17,9 @@ namespace MaintenanceComposants
         {
             InitializeComponent();
             bd = p_bd; //attribution de la variable p_bd à la variable bd (bd devient p_bd)
-            bs.DataSource = bd.Diplome;//ajout apres le mode conception, permet d'avoir les données
+            bs.DataSource = bd.Diplome.Include("LesEmployes");//ajout apres le mode conception, permet d'avoir les données
+        //.Include("LesEmployes"); permet de charger les données demandées explicitement
+            lb_employes.DisplayMember="Patronyme";
         }
 
         private void Fm_diplome_Load(object sender, EventArgs e)

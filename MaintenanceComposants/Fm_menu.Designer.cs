@@ -33,11 +33,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(331, 281);
+            this.button1.Location = new System.Drawing.Point(322, 143);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 23);
+            this.button1.Size = new System.Drawing.Size(174, 119);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Redirection Fm_diplome";
+            this.button1.Text = "Menu diplome";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btn_diplome_Click);
             // 

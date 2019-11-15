@@ -29,40 +29,61 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fm_diplome));
             System.Windows.Forms.Label dip_idLabel;
             System.Windows.Forms.Label dip_libelleLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fm_diplome));
             this.bs = new System.Windows.Forms.BindingSource(this.components);
             this.bn = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.diplomeBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.dip_idTextBox = new System.Windows.Forms.TextBox();
             this.dip_libelleTextBox = new System.Windows.Forms.TextBox();
             this.bs_employe = new System.Windows.Forms.BindingSource(this.components);
-            this.lesEmployesListBox = new System.Windows.Forms.ListBox();
+            this.lb_employes = new System.Windows.Forms.ListBox();
             dip_idLabel = new System.Windows.Forms.Label();
             dip_libelleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bn)).BeginInit();
             this.bn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_employe)).BeginInit();
             this.SuspendLayout();
             // 
-            // diplomeBindingSource
+            // dip_idLabel
+            // 
+            dip_idLabel.AutoSize = true;
+            dip_idLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            dip_idLabel.Location = new System.Drawing.Point(45, 57);
+            dip_idLabel.Name = "dip_idLabel";
+            dip_idLabel.Size = new System.Drawing.Size(35, 13);
+            dip_idLabel.TabIndex = 1;
+            dip_idLabel.Text = "dip id:";
+            dip_idLabel.Click += new System.EventHandler(this.dip_idLabel_Click);
+            // 
+            // dip_libelleLabel
+            // 
+            dip_libelleLabel.AutoSize = true;
+            dip_libelleLabel.Location = new System.Drawing.Point(45, 83);
+            dip_libelleLabel.Name = "dip_libelleLabel";
+            dip_libelleLabel.Size = new System.Drawing.Size(53, 13);
+            dip_libelleLabel.TabIndex = 3;
+            dip_libelleLabel.Text = "dip libelle:";
+            dip_libelleLabel.Click += new System.EventHandler(this.dip_libelleLabel_Click);
+            // 
+            // bs
             // 
             this.bs.DataSource = typeof(MaintenanceComposants.Diplome);
             // 
-            // diplomeBindingNavigator
+            // bn
             // 
             this.bn.AddNewItem = this.bindingNavigatorAddNewItem;
             this.bn.BindingSource = this.bs;
@@ -86,11 +107,36 @@
             this.bn.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bn.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bn.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bn.Name = "diplomeBindingNavigator";
+            this.bn.Name = "bn";
             this.bn.PositionItem = this.bindingNavigatorPositionItem;
             this.bn.Size = new System.Drawing.Size(800, 25);
             this.bn.TabIndex = 0;
             this.bn.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Supprimer";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -124,16 +170,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -156,26 +195,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Supprimer";
             // 
             // diplomeBindingNavigatorSaveItem
             // 
@@ -186,16 +207,6 @@
             this.diplomeBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.diplomeBindingNavigatorSaveItem.Text = "Enregistrer les données";
             // 
-            // dip_idLabel
-            // 
-            dip_idLabel.AutoSize = true;
-            dip_idLabel.Location = new System.Drawing.Point(45, 57);
-            dip_idLabel.Name = "dip_idLabel";
-            dip_idLabel.Size = new System.Drawing.Size(35, 13);
-            dip_idLabel.TabIndex = 1;
-            dip_idLabel.Text = "dip id:";
-            dip_idLabel.Click += new System.EventHandler(this.dip_idLabel_Click);
-            // 
             // dip_idTextBox
             // 
             this.dip_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "dip_id", true));
@@ -204,16 +215,6 @@
             this.dip_idTextBox.Size = new System.Drawing.Size(100, 20);
             this.dip_idTextBox.TabIndex = 2;
             this.dip_idTextBox.TextChanged += new System.EventHandler(this.dip_idTextBox_TextChanged);
-            // 
-            // dip_libelleLabel
-            // 
-            dip_libelleLabel.AutoSize = true;
-            dip_libelleLabel.Location = new System.Drawing.Point(45, 83);
-            dip_libelleLabel.Name = "dip_libelleLabel";
-            dip_libelleLabel.Size = new System.Drawing.Size(53, 13);
-            dip_libelleLabel.TabIndex = 3;
-            dip_libelleLabel.Text = "dip libelle:";
-            dip_libelleLabel.Click += new System.EventHandler(this.dip_libelleLabel_Click);
             // 
             // dip_libelleTextBox
             // 
@@ -224,29 +225,29 @@
             this.dip_libelleTextBox.TabIndex = 4;
             this.dip_libelleTextBox.TextChanged += new System.EventHandler(this.dip_libelleTextBox_TextChanged);
             // 
-            // lesEmployesBindingSource
+            // bs_employe
             // 
             this.bs_employe.DataMember = "LesEmployes";
             this.bs_employe.DataSource = this.bs;
             // 
-            // lesEmployesListBox
+            // lb_employes
             // 
-            this.lesEmployesListBox.DataSource = this.bs_employe;
-            this.lesEmployesListBox.DisplayMember = "emp_nom";
-            this.lesEmployesListBox.FormattingEnabled = true;
-            this.lesEmployesListBox.Location = new System.Drawing.Point(48, 115);
-            this.lesEmployesListBox.Name = "lesEmployesListBox";
-            this.lesEmployesListBox.Size = new System.Drawing.Size(300, 212);
-            this.lesEmployesListBox.TabIndex = 5;
-            this.lesEmployesListBox.ValueMember = "emp_id";
-            this.lesEmployesListBox.SelectedIndexChanged += new System.EventHandler(this.lesEmployesListBox_SelectedIndexChanged);
+            this.lb_employes.DataSource = this.bs_employe;
+            this.lb_employes.DisplayMember = "emp_nom";
+            this.lb_employes.FormattingEnabled = true;
+            this.lb_employes.Location = new System.Drawing.Point(48, 115);
+            this.lb_employes.Name = "lb_employes";
+            this.lb_employes.Size = new System.Drawing.Size(300, 212);
+            this.lb_employes.TabIndex = 5;
+            this.lb_employes.ValueMember = "emp_id";
+            this.lb_employes.SelectedIndexChanged += new System.EventHandler(this.lesEmployesListBox_SelectedIndexChanged);
             // 
             // Fm_diplome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lesEmployesListBox);
+            this.Controls.Add(this.lb_employes);
             this.Controls.Add(dip_idLabel);
             this.Controls.Add(this.dip_idTextBox);
             this.Controls.Add(dip_libelleLabel);
@@ -284,6 +285,6 @@
         private System.Windows.Forms.TextBox dip_idTextBox;
         private System.Windows.Forms.TextBox dip_libelleTextBox;
         private System.Windows.Forms.BindingSource bs_employe;
-        private System.Windows.Forms.ListBox lesEmployesListBox;
+        private System.Windows.Forms.ListBox lb_employes;
     }
 }
