@@ -16,7 +16,7 @@ namespace MaintenanceComposants
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Fm_menu());
         }
     }
 }

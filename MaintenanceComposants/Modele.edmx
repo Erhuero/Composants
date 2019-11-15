@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EntityFramework.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Diplome">
+          <Key>
+            <PropertyRef Name="dip_id" />
+          </Key>
+          <Property Name="dip_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dip_libelle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="emp_prenom" Type="nvarchar" MaxLength="50" />
+          <Property Name="emp_sexe" Type="nvarchar" MaxLength="1" />
+          <Property Name="emp_cadre" Type="bit" />
+          <Property Name="emp_salaire" Type="money" />
+          <Property Name="emp_service" Type="int" />
+        </EntityType>
+        <EntityType Name="Posseder">
+          <Key>
+            <PropertyRef Name="pos_diplome" />
+            <PropertyRef Name="pos_employe" />
+          </Key>
+          <Property Name="pos_diplome" Type="int" Nullable="false" />
+          <Property Name="pos_employe" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ser_id" />
+          </Key>
+          <Property Name="ser_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ser_designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="ser_type" Type="nvarchar" MaxLength="1" />
+          <Property Name="ser_produit" Type="nvarchar" MaxLength="50" />
+          <Property Name="ser_capacite" Type="int" />
+          <Property Name="ser_budget" Type="money" />
+        </EntityType>
+        <Association Name="FK__Employe__emp_ser__3D5E1FD2">
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ser_id" />
+            </Principal>
+            <Dependent Role="Employe">
+              <PropertyRef Name="emp_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posseder__pos_di__3E52440B">
+          <End Role="Diplome" Type="Self.Diplome" Multiplicity="1" />
+          <End Role="Posseder" Type="Self.Posseder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diplome">
+              <PropertyRef Name="dip_id" />
+            </Principal>
+            <Dependent Role="Posseder">
+              <PropertyRef Name="pos_diplome" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posseder__pos_em__3F466844">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Posseder" Type="Self.Posseder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="Posseder">
+              <PropertyRef Name="pos_employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EntityFrameworkStoreContainer">
+          <EntitySet Name="Diplome" EntityType="Self.Diplome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employe" EntityType="Self.Employe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posseder" EntityType="Self.Posseder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Employe__emp_ser__3D5E1FD2" Association="Self.FK__Employe__emp_ser__3D5E1FD2">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Employe" EntitySet="Employe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posseder__pos_di__3E52440B" Association="Self.FK__Posseder__pos_di__3E52440B">
+            <End Role="Diplome" EntitySet="Diplome" />
+            <End Role="Posseder" EntitySet="Posseder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posseder__pos_em__3F466844" Association="Self.FK__Posseder__pos_em__3F466844">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Posseder" EntitySet="Posseder" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EntityFramework" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Diplome">
+          <Key>
+            <PropertyRef Name="dip_id" />
+          </Key>
+          <Property Name="dip_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dip_libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LesEmployes" Relationship="Self.Posseder" FromRole="Diplome" ToRole="Employe" />
+        </EntityType>
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emp_prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emp_sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="emp_cadre" Type="Boolean" />
+          <Property Name="emp_salaire" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="emp_service" Type="Int32" />
+          <NavigationProperty Name="LeService" Relationship="Self.FK__Employe__emp_ser__3D5E1FD2" FromRole="Employe" ToRole="Service" />
+          <NavigationProperty Name="LesDiplomes" Relationship="Self.Posseder" FromRole="Employe" ToRole="Diplome" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ser_id" />
+          </Key>
+          <Property Name="ser_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ser_designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ser_type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ser_produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ser_capacite" Type="Int32" />
+          <Property Name="ser_budget" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="LesEmployes" Relationship="Self.FK__Employe__emp_ser__3D5E1FD2" FromRole="Service" ToRole="Employe" />
+        </EntityType>
+        <Association Name="FK__Employe__emp_ser__3D5E1FD2">
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ser_id" />
+            </Principal>
+            <Dependent Role="Employe">
+              <PropertyRef Name="emp_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Posseder">
+          <End Role="Diplome" Type="Self.Diplome" Multiplicity="*" />
+          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Modele" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Diplome" EntityType="Self.Diplome" />
+          <EntitySet Name="Employe" EntityType="Self.Employe" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <AssociationSet Name="FK__Employe__emp_ser__3D5E1FD2" Association="Self.FK__Employe__emp_ser__3D5E1FD2">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Employe" EntitySet="Employe" />
+          </AssociationSet>
+          <AssociationSet Name="Posseder" Association="Self.Posseder">
+            <End Role="Diplome" EntitySet="Diplome" />
+            <End Role="Employe" EntitySet="Employe" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EntityFrameworkStoreContainer" CdmEntityContainer="Modele">
+          <EntitySetMapping Name="Diplome">
+            <EntityTypeMapping TypeName="EntityFramework.Diplome">
+              <MappingFragment StoreEntitySet="Diplome">
+                <ScalarProperty Name="dip_id" ColumnName="dip_id" />
+                <ScalarProperty Name="dip_libelle" ColumnName="dip_libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employe">
+            <EntityTypeMapping TypeName="EntityFramework.Employe">
+              <MappingFragment StoreEntitySet="Employe">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="emp_nom" ColumnName="emp_nom" />
+                <ScalarProperty Name="emp_prenom" ColumnName="emp_prenom" />
+                <ScalarProperty Name="emp_sexe" ColumnName="emp_sexe" />
+                <ScalarProperty Name="emp_cadre" ColumnName="emp_cadre" />
+                <ScalarProperty Name="emp_salaire" ColumnName="emp_salaire" />
+                <ScalarProperty Name="emp_service" ColumnName="emp_service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="EntityFramework.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="ser_id" ColumnName="ser_id" />
+                <ScalarProperty Name="ser_designation" ColumnName="ser_designation" />
+                <ScalarProperty Name="ser_type" ColumnName="ser_type" />
+                <ScalarProperty Name="ser_produit" ColumnName="ser_produit" />
+                <ScalarProperty Name="ser_capacite" ColumnName="ser_capacite" />
+                <ScalarProperty Name="ser_budget" ColumnName="ser_budget" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Posseder" TypeName="EntityFramework.Posseder" StoreEntitySet="Posseder">
+            <EndProperty Name="Diplome">
+              <ScalarProperty Name="dip_id" ColumnName="pos_diplome" />
+            </EndProperty>
+            <EndProperty Name="Employe">
+              <ScalarProperty Name="emp_id" ColumnName="pos_employe" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Par défaut" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
