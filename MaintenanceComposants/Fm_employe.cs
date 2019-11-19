@@ -18,6 +18,17 @@ namespace MaintenanceComposants
 
             InitializeComponent();
             bd = p_bd;
+            bs.DataSource = bd.Employe;
+        }
+
+        private void employeBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emp_idLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
