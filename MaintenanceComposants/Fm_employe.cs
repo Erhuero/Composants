@@ -18,7 +18,8 @@ namespace MaintenanceComposants
 
             InitializeComponent();
             bd = p_bd;
-            bs.DataSource = bd.Employe;
+            bs.DataSource = bd.Employe;//affiche les employes dans les cases
+            bs_service.DataSource = bd.Service;//affiche la ComboBox
         }
 
         private void employeBindingNavigator_RefreshItems(object sender, EventArgs e)
@@ -27,6 +28,21 @@ namespace MaintenanceComposants
         }
 
         private void emp_idLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void leServiceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void leServiceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emp_cadreCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 
         }

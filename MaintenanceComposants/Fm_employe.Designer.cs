@@ -37,6 +37,7 @@
             System.Windows.Forms.Label emp_serviceLabel;
             System.Windows.Forms.Label emp_sexeLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fm_employe));
+            System.Windows.Forms.Label leServiceLabel;
             this.bs = new System.Windows.Forms.BindingSource(this.components);
             this.bn = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -58,6 +59,9 @@
             this.emp_salaireTextBox = new System.Windows.Forms.TextBox();
             this.emp_serviceTextBox = new System.Windows.Forms.TextBox();
             this.emp_sexeTextBox = new System.Windows.Forms.TextBox();
+            this.cb_service = new System.Windows.Forms.ComboBox();
+            this.bs_service = new System.Windows.Forms.BindingSource(this.components);
+            this.lesEmployesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             emp_cadreLabel = new System.Windows.Forms.Label();
             emp_idLabel = new System.Windows.Forms.Label();
             emp_nomLabel = new System.Windows.Forms.Label();
@@ -65,9 +69,12 @@
             emp_salaireLabel = new System.Windows.Forms.Label();
             emp_serviceLabel = new System.Windows.Forms.Label();
             emp_sexeLabel = new System.Windows.Forms.Label();
+            leServiceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bn)).BeginInit();
             this.bn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_service)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lesEmployesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // emp_cadreLabel
@@ -164,7 +171,7 @@
             this.bn.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bn.Name = "bn";
             this.bn.PositionItem = this.bindingNavigatorPositionItem;
-            this.bn.Size = new System.Drawing.Size(800, 25);
+            this.bn.Size = new System.Drawing.Size(801, 25);
             this.bn.TabIndex = 0;
             this.bn.Text = "bindingNavigator1";
             this.bn.RefreshItems += new System.EventHandler(this.employeBindingNavigator_RefreshItems);
@@ -272,6 +279,7 @@
             this.emp_cadreCheckBox.TabIndex = 2;
             this.emp_cadreCheckBox.Text = "checkBox1";
             this.emp_cadreCheckBox.UseVisualStyleBackColor = true;
+            this.emp_cadreCheckBox.CheckedChanged += new System.EventHandler(this.emp_cadreCheckBox_CheckedChanged);
             // 
             // emp_idTextBox
             // 
@@ -321,11 +329,45 @@
             this.emp_sexeTextBox.Size = new System.Drawing.Size(104, 20);
             this.emp_sexeTextBox.TabIndex = 14;
             // 
+            // leServiceLabel
+            // 
+            leServiceLabel.AutoSize = true;
+            leServiceLabel.Location = new System.Drawing.Point(344, 114);
+            leServiceLabel.Name = "leServiceLabel";
+            leServiceLabel.Size = new System.Drawing.Size(61, 13);
+            leServiceLabel.TabIndex = 15;
+            leServiceLabel.Text = "Le Service:";
+            leServiceLabel.Click += new System.EventHandler(this.leServiceLabel_Click);
+            // 
+            // cb_service
+            // 
+            this.cb_service.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "LeService", true));
+            this.cb_service.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bs, "LeService", true));
+            this.cb_service.DataSource = this.bs_service;
+            this.cb_service.DisplayMember = "ser_designation";
+            this.cb_service.FormattingEnabled = true;
+            this.cb_service.Location = new System.Drawing.Point(411, 111);
+            this.cb_service.Name = "cb_service";
+            this.cb_service.Size = new System.Drawing.Size(121, 21);
+            this.cb_service.TabIndex = 16;
+            this.cb_service.SelectedIndexChanged += new System.EventHandler(this.leServiceComboBox_SelectedIndexChanged);
+            // 
+            // bs_service
+            // 
+            this.bs_service.DataSource = typeof(MaintenanceComposants.Service);
+            // 
+            // lesEmployesBindingSource
+            // 
+            this.lesEmployesBindingSource.DataMember = "LesEmployes";
+            this.lesEmployesBindingSource.DataSource = this.bs_service;
+            // 
             // Fm_employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(801, 450);
+            this.Controls.Add(leServiceLabel);
+            this.Controls.Add(this.cb_service);
             this.Controls.Add(emp_cadreLabel);
             this.Controls.Add(this.emp_cadreCheckBox);
             this.Controls.Add(emp_idLabel);
@@ -347,6 +389,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bn)).EndInit();
             this.bn.ResumeLayout(false);
             this.bn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_service)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lesEmployesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,5 +419,8 @@
         private System.Windows.Forms.TextBox emp_salaireTextBox;
         private System.Windows.Forms.TextBox emp_serviceTextBox;
         private System.Windows.Forms.TextBox emp_sexeTextBox;
+        private System.Windows.Forms.ComboBox cb_service;
+        private System.Windows.Forms.BindingSource bs_service;
+        private System.Windows.Forms.BindingSource lesEmployesBindingSource;
     }
 }
