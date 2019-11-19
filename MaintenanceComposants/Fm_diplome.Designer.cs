@@ -121,6 +121,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -137,6 +138,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Supprimer";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -201,11 +203,11 @@
             // diplomeBindingNavigatorSaveItem
             // 
             this.diplomeBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.diplomeBindingNavigatorSaveItem.Enabled = false;
             this.diplomeBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("diplomeBindingNavigatorSaveItem.Image")));
             this.diplomeBindingNavigatorSaveItem.Name = "diplomeBindingNavigatorSaveItem";
             this.diplomeBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.diplomeBindingNavigatorSaveItem.Text = "Enregistrer les données";
+            this.diplomeBindingNavigatorSaveItem.Click += new System.EventHandler(this.diplomeBindingNavigatorSaveItem_Click);
             // 
             // dip_idTextBox
             // 

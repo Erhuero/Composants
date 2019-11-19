@@ -60,6 +60,12 @@
     <Compile Include="Fm_diplome.Designer.cs">
       <DependentUpon>Fm_diplome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fm_employe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_employe.Designer.cs">
+      <DependentUpon>Fm_employe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fm_menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Fm_diplome.resx">
       <DependentUpon>Fm_diplome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fm_employe.resx">
+      <DependentUpon>Fm_employe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_menu.resx">
       <DependentUpon>Fm_menu.cs</DependentUpon>
@@ -97,6 +106,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Diplome.datasource" />
+    <None Include="Properties\DataSources\Employe.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

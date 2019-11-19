@@ -24,5 +24,11 @@ namespace MaintenanceComposants
             Fm_diplome fdip = new Fm_diplome(bd); //création de la variable fdip avec le type Fm_diplome avec l'instanciation de Fm_diplome(bd)
             fdip.ShowDialog();//affiche la fenetre fm_diplome
         }
+
+        private void bt_employe(object sender, EventArgs e)
+        {
+            Fm_employe femp = new Fm_employe(bd);
+            femp.ShowDialog();
+        }
     }
 }

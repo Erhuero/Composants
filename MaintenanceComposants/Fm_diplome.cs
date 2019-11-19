@@ -51,5 +51,54 @@ namespace MaintenanceComposants
         {
 
         }
+
+        private void diplomeBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            if (bs.Current != null)
+            {
+                bs.EndEdit();
+                bd.SaveChanges();
+            }
+
+        }
+
+        private void bs_CurrentChanged(object sender, EventArgs e)
+        {
+            if (bs.Current != null)
+            {
+                if(((Diplome)bs.Current).EntityState==EntityState.Detached) //ajout             
+
+                {
+                    bs.EndEdit();
+                    bs.RaiseListChangedEvents = false;
+                    bd.SaveChanges();
+                    bs.RaiseListChangedEvents = true;
+                    bs.ResetCurrentItem();
+                }     
+            else
+            {
+                bd.SaveChanges();
+            }
+            }
+        }
+
+        private void Fm_diplome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(bs.Current != null)
+            {
+                bs.EndEdit();
+                bd.SaveChanges();
+            }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
