@@ -15,5 +15,37 @@ namespace MaintenanceComposants
                 return emp_nom + "" + emp_prenom;
             }
         }
+
+        public bool IsFemme
+        {
+            get { return emp_sexe == "F"; }
+            set
+            {
+                if(value)
+                {
+                    emp_sexe = "F";
+                }
+                else
+                {
+                    emp_sexe = "M";
+                }
+            }
+        }
+        public bool IsHomme
+        {
+            get { return emp_sexe == "M"; }
+            set
+            {
+                if (value)
+                {
+                    emp_sexe = "M";
+                }
+                else
+                {
+                    emp_sexe = "F";
+                }
+            }
+        }
+
     }
 }

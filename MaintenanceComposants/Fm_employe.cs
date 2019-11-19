@@ -20,6 +20,12 @@ namespace MaintenanceComposants
             bd = p_bd;
             bs.DataSource = bd.Employe;//affiche les employes dans les cases
             bs_service.DataSource = bd.Service;//affiche la ComboBox
+
+
+
+
+
+
         }
 
         private void employeBindingNavigator_RefreshItems(object sender, EventArgs e)
@@ -43,6 +49,21 @@ namespace MaintenanceComposants
         }
 
         private void emp_cadreCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Fm_employe_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_diplomesPossedes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

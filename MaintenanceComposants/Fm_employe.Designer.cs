@@ -34,8 +34,6 @@
             System.Windows.Forms.Label emp_nomLabel;
             System.Windows.Forms.Label emp_prenomLabel;
             System.Windows.Forms.Label emp_salaireLabel;
-            System.Windows.Forms.Label emp_serviceLabel;
-            System.Windows.Forms.Label emp_sexeLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fm_employe));
             System.Windows.Forms.Label leServiceLabel;
             this.bs = new System.Windows.Forms.BindingSource(this.components);
@@ -57,89 +55,74 @@
             this.emp_nomTextBox = new System.Windows.Forms.TextBox();
             this.emp_prenomTextBox = new System.Windows.Forms.TextBox();
             this.emp_salaireTextBox = new System.Windows.Forms.TextBox();
-            this.emp_serviceTextBox = new System.Windows.Forms.TextBox();
-            this.emp_sexeTextBox = new System.Windows.Forms.TextBox();
             this.cb_service = new System.Windows.Forms.ComboBox();
             this.bs_service = new System.Windows.Forms.BindingSource(this.components);
             this.lesEmployesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gb_sexe = new System.Windows.Forms.GroupBox();
+            this.rb_feminin = new System.Windows.Forms.RadioButton();
+            this.rb_masculin = new System.Windows.Forms.RadioButton();
+            this.lesDiplomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lb_diplomesPossedes = new System.Windows.Forms.ListBox();
             emp_cadreLabel = new System.Windows.Forms.Label();
             emp_idLabel = new System.Windows.Forms.Label();
             emp_nomLabel = new System.Windows.Forms.Label();
             emp_prenomLabel = new System.Windows.Forms.Label();
             emp_salaireLabel = new System.Windows.Forms.Label();
-            emp_serviceLabel = new System.Windows.Forms.Label();
-            emp_sexeLabel = new System.Windows.Forms.Label();
             leServiceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bn)).BeginInit();
             this.bn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bs_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lesEmployesBindingSource)).BeginInit();
+            this.gb_sexe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lesDiplomesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // emp_cadreLabel
             // 
             emp_cadreLabel.AutoSize = true;
-            emp_cadreLabel.Location = new System.Drawing.Point(112, 89);
+            emp_cadreLabel.Location = new System.Drawing.Point(30, 151);
             emp_cadreLabel.Name = "emp_cadreLabel";
-            emp_cadreLabel.Size = new System.Drawing.Size(60, 13);
+            emp_cadreLabel.Size = new System.Drawing.Size(41, 13);
             emp_cadreLabel.TabIndex = 1;
-            emp_cadreLabel.Text = "emp cadre:";
+            emp_cadreLabel.Text = "Cadre :";
             // 
             // emp_idLabel
             // 
             emp_idLabel.AutoSize = true;
-            emp_idLabel.Location = new System.Drawing.Point(112, 117);
+            emp_idLabel.Location = new System.Drawing.Point(30, 70);
             emp_idLabel.Name = "emp_idLabel";
-            emp_idLabel.Size = new System.Drawing.Size(41, 13);
+            emp_idLabel.Size = new System.Drawing.Size(22, 13);
             emp_idLabel.TabIndex = 3;
-            emp_idLabel.Text = "emp id:";
+            emp_idLabel.Text = "Id :";
             emp_idLabel.Click += new System.EventHandler(this.emp_idLabel_Click);
             // 
             // emp_nomLabel
             // 
             emp_nomLabel.AutoSize = true;
-            emp_nomLabel.Location = new System.Drawing.Point(112, 143);
+            emp_nomLabel.Location = new System.Drawing.Point(30, 99);
             emp_nomLabel.Name = "emp_nomLabel";
-            emp_nomLabel.Size = new System.Drawing.Size(53, 13);
+            emp_nomLabel.Size = new System.Drawing.Size(35, 13);
             emp_nomLabel.TabIndex = 5;
-            emp_nomLabel.Text = "emp nom:";
+            emp_nomLabel.Text = "Nom :";
             // 
             // emp_prenomLabel
             // 
             emp_prenomLabel.AutoSize = true;
-            emp_prenomLabel.Location = new System.Drawing.Point(112, 169);
+            emp_prenomLabel.Location = new System.Drawing.Point(30, 125);
             emp_prenomLabel.Name = "emp_prenomLabel";
-            emp_prenomLabel.Size = new System.Drawing.Size(68, 13);
+            emp_prenomLabel.Size = new System.Drawing.Size(49, 13);
             emp_prenomLabel.TabIndex = 7;
-            emp_prenomLabel.Text = "emp prenom:";
+            emp_prenomLabel.Text = "Prenom :";
             // 
             // emp_salaireLabel
             // 
             emp_salaireLabel.AutoSize = true;
-            emp_salaireLabel.Location = new System.Drawing.Point(112, 195);
+            emp_salaireLabel.Location = new System.Drawing.Point(30, 179);
             emp_salaireLabel.Name = "emp_salaireLabel";
-            emp_salaireLabel.Size = new System.Drawing.Size(63, 13);
+            emp_salaireLabel.Size = new System.Drawing.Size(45, 13);
             emp_salaireLabel.TabIndex = 9;
-            emp_salaireLabel.Text = "emp salaire:";
-            // 
-            // emp_serviceLabel
-            // 
-            emp_serviceLabel.AutoSize = true;
-            emp_serviceLabel.Location = new System.Drawing.Point(112, 221);
-            emp_serviceLabel.Name = "emp_serviceLabel";
-            emp_serviceLabel.Size = new System.Drawing.Size(67, 13);
-            emp_serviceLabel.TabIndex = 11;
-            emp_serviceLabel.Text = "emp service:";
-            // 
-            // emp_sexeLabel
-            // 
-            emp_sexeLabel.AutoSize = true;
-            emp_sexeLabel.Location = new System.Drawing.Point(112, 247);
-            emp_sexeLabel.Name = "emp_sexeLabel";
-            emp_sexeLabel.Size = new System.Drawing.Size(55, 13);
-            emp_sexeLabel.TabIndex = 13;
-            emp_sexeLabel.Text = "emp sexe:";
+            emp_salaireLabel.Text = "Salaire :";
             // 
             // bs
             // 
@@ -171,7 +154,7 @@
             this.bn.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bn.Name = "bn";
             this.bn.PositionItem = this.bindingNavigatorPositionItem;
-            this.bn.Size = new System.Drawing.Size(801, 25);
+            this.bn.Size = new System.Drawing.Size(971, 25);
             this.bn.TabIndex = 0;
             this.bn.Text = "bindingNavigator1";
             this.bn.RefreshItems += new System.EventHandler(this.employeBindingNavigator_RefreshItems);
@@ -273,18 +256,17 @@
             // emp_cadreCheckBox
             // 
             this.emp_cadreCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bs, "emp_cadre", true));
-            this.emp_cadreCheckBox.Location = new System.Drawing.Point(186, 84);
+            this.emp_cadreCheckBox.Location = new System.Drawing.Point(87, 146);
             this.emp_cadreCheckBox.Name = "emp_cadreCheckBox";
             this.emp_cadreCheckBox.Size = new System.Drawing.Size(104, 24);
             this.emp_cadreCheckBox.TabIndex = 2;
-            this.emp_cadreCheckBox.Text = "checkBox1";
             this.emp_cadreCheckBox.UseVisualStyleBackColor = true;
             this.emp_cadreCheckBox.CheckedChanged += new System.EventHandler(this.emp_cadreCheckBox_CheckedChanged);
             // 
             // emp_idTextBox
             // 
             this.emp_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_id", true));
-            this.emp_idTextBox.Location = new System.Drawing.Point(186, 114);
+            this.emp_idTextBox.Location = new System.Drawing.Point(87, 70);
             this.emp_idTextBox.Name = "emp_idTextBox";
             this.emp_idTextBox.Size = new System.Drawing.Size(104, 20);
             this.emp_idTextBox.TabIndex = 4;
@@ -292,7 +274,7 @@
             // emp_nomTextBox
             // 
             this.emp_nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_nom", true));
-            this.emp_nomTextBox.Location = new System.Drawing.Point(186, 140);
+            this.emp_nomTextBox.Location = new System.Drawing.Point(87, 96);
             this.emp_nomTextBox.Name = "emp_nomTextBox";
             this.emp_nomTextBox.Size = new System.Drawing.Size(104, 20);
             this.emp_nomTextBox.TabIndex = 6;
@@ -300,7 +282,7 @@
             // emp_prenomTextBox
             // 
             this.emp_prenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_prenom", true));
-            this.emp_prenomTextBox.Location = new System.Drawing.Point(186, 166);
+            this.emp_prenomTextBox.Location = new System.Drawing.Point(87, 122);
             this.emp_prenomTextBox.Name = "emp_prenomTextBox";
             this.emp_prenomTextBox.Size = new System.Drawing.Size(104, 20);
             this.emp_prenomTextBox.TabIndex = 8;
@@ -308,35 +290,19 @@
             // emp_salaireTextBox
             // 
             this.emp_salaireTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_salaire", true));
-            this.emp_salaireTextBox.Location = new System.Drawing.Point(186, 192);
+            this.emp_salaireTextBox.Location = new System.Drawing.Point(87, 176);
             this.emp_salaireTextBox.Name = "emp_salaireTextBox";
             this.emp_salaireTextBox.Size = new System.Drawing.Size(104, 20);
             this.emp_salaireTextBox.TabIndex = 10;
             // 
-            // emp_serviceTextBox
-            // 
-            this.emp_serviceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_service", true));
-            this.emp_serviceTextBox.Location = new System.Drawing.Point(186, 218);
-            this.emp_serviceTextBox.Name = "emp_serviceTextBox";
-            this.emp_serviceTextBox.Size = new System.Drawing.Size(104, 20);
-            this.emp_serviceTextBox.TabIndex = 12;
-            // 
-            // emp_sexeTextBox
-            // 
-            this.emp_sexeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_sexe", true));
-            this.emp_sexeTextBox.Location = new System.Drawing.Point(186, 244);
-            this.emp_sexeTextBox.Name = "emp_sexeTextBox";
-            this.emp_sexeTextBox.Size = new System.Drawing.Size(104, 20);
-            this.emp_sexeTextBox.TabIndex = 14;
-            // 
             // leServiceLabel
             // 
             leServiceLabel.AutoSize = true;
-            leServiceLabel.Location = new System.Drawing.Point(344, 114);
+            leServiceLabel.Location = new System.Drawing.Point(232, 179);
             leServiceLabel.Name = "leServiceLabel";
-            leServiceLabel.Size = new System.Drawing.Size(61, 13);
+            leServiceLabel.Size = new System.Drawing.Size(49, 13);
             leServiceLabel.TabIndex = 15;
-            leServiceLabel.Text = "Le Service:";
+            leServiceLabel.Text = "Service :";
             leServiceLabel.Click += new System.EventHandler(this.leServiceLabel_Click);
             // 
             // cb_service
@@ -346,9 +312,9 @@
             this.cb_service.DataSource = this.bs_service;
             this.cb_service.DisplayMember = "ser_designation";
             this.cb_service.FormattingEnabled = true;
-            this.cb_service.Location = new System.Drawing.Point(411, 111);
+            this.cb_service.Location = new System.Drawing.Point(299, 176);
             this.cb_service.Name = "cb_service";
-            this.cb_service.Size = new System.Drawing.Size(121, 21);
+            this.cb_service.Size = new System.Drawing.Size(137, 21);
             this.cb_service.TabIndex = 16;
             this.cb_service.SelectedIndexChanged += new System.EventHandler(this.leServiceComboBox_SelectedIndexChanged);
             // 
@@ -361,11 +327,65 @@
             this.lesEmployesBindingSource.DataMember = "LesEmployes";
             this.lesEmployesBindingSource.DataSource = this.bs_service;
             // 
+            // gb_sexe
+            // 
+            this.gb_sexe.Controls.Add(this.rb_masculin);
+            this.gb_sexe.Controls.Add(this.rb_feminin);
+            this.gb_sexe.Location = new System.Drawing.Point(235, 70);
+            this.gb_sexe.Name = "gb_sexe";
+            this.gb_sexe.Size = new System.Drawing.Size(201, 74);
+            this.gb_sexe.TabIndex = 17;
+            this.gb_sexe.TabStop = false;
+            this.gb_sexe.Text = "Sexe";
+            // 
+            // rb_feminin
+            // 
+            this.rb_feminin.AutoSize = true;
+            this.rb_feminin.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs, "IsFemme", true));
+            this.rb_feminin.Location = new System.Drawing.Point(25, 29);
+            this.rb_feminin.Name = "rb_feminin";
+            this.rb_feminin.Size = new System.Drawing.Size(61, 17);
+            this.rb_feminin.TabIndex = 0;
+            this.rb_feminin.TabStop = true;
+            this.rb_feminin.Text = "Feminin";
+            this.rb_feminin.UseVisualStyleBackColor = true;
+            this.rb_feminin.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // rb_masculin
+            // 
+            this.rb_masculin.AutoSize = true;
+            this.rb_masculin.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs, "IsHomme", true));
+            this.rb_masculin.Location = new System.Drawing.Point(115, 29);
+            this.rb_masculin.Name = "rb_masculin";
+            this.rb_masculin.Size = new System.Drawing.Size(67, 17);
+            this.rb_masculin.TabIndex = 1;
+            this.rb_masculin.TabStop = true;
+            this.rb_masculin.Text = "Masculin";
+            this.rb_masculin.UseVisualStyleBackColor = true;
+            // 
+            // lesDiplomesBindingSource
+            // 
+            this.lesDiplomesBindingSource.DataMember = "LesDiplomes";
+            this.lesDiplomesBindingSource.DataSource = this.bs;
+            // 
+            // lb_diplomesPossedes
+            // 
+            this.lb_diplomesPossedes.DataSource = this.lesEmployesBindingSource;
+            this.lb_diplomesPossedes.FormattingEnabled = true;
+            this.lb_diplomesPossedes.Location = new System.Drawing.Point(472, 70);
+            this.lb_diplomesPossedes.Name = "lb_diplomesPossedes";
+            this.lb_diplomesPossedes.Size = new System.Drawing.Size(300, 212);
+            this.lb_diplomesPossedes.TabIndex = 17;
+            this.lb_diplomesPossedes.ValueMember = "dip_id";
+            this.lb_diplomesPossedes.SelectedIndexChanged += new System.EventHandler(this.lb_diplomesPossedes_SelectedIndexChanged);
+            // 
             // Fm_employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 450);
+            this.ClientSize = new System.Drawing.Size(971, 450);
+            this.Controls.Add(this.lb_diplomesPossedes);
+            this.Controls.Add(this.gb_sexe);
             this.Controls.Add(leServiceLabel);
             this.Controls.Add(this.cb_service);
             this.Controls.Add(emp_cadreLabel);
@@ -378,19 +398,19 @@
             this.Controls.Add(this.emp_prenomTextBox);
             this.Controls.Add(emp_salaireLabel);
             this.Controls.Add(this.emp_salaireTextBox);
-            this.Controls.Add(emp_serviceLabel);
-            this.Controls.Add(this.emp_serviceTextBox);
-            this.Controls.Add(emp_sexeLabel);
-            this.Controls.Add(this.emp_sexeTextBox);
             this.Controls.Add(this.bn);
             this.Name = "Fm_employe";
             this.Text = "Fm_employe";
+            this.Load += new System.EventHandler(this.Fm_employe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bn)).EndInit();
             this.bn.ResumeLayout(false);
             this.bn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bs_service)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lesEmployesBindingSource)).EndInit();
+            this.gb_sexe.ResumeLayout(false);
+            this.gb_sexe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lesDiplomesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,10 +437,13 @@
         private System.Windows.Forms.TextBox emp_nomTextBox;
         private System.Windows.Forms.TextBox emp_prenomTextBox;
         private System.Windows.Forms.TextBox emp_salaireTextBox;
-        private System.Windows.Forms.TextBox emp_serviceTextBox;
-        private System.Windows.Forms.TextBox emp_sexeTextBox;
         private System.Windows.Forms.ComboBox cb_service;
         private System.Windows.Forms.BindingSource bs_service;
         private System.Windows.Forms.BindingSource lesEmployesBindingSource;
+        private System.Windows.Forms.GroupBox gb_sexe;
+        private System.Windows.Forms.RadioButton rb_masculin;
+        private System.Windows.Forms.RadioButton rb_feminin;
+        private System.Windows.Forms.BindingSource lesDiplomesBindingSource;
+        private System.Windows.Forms.ListBox lb_diplomesPossedes;
     }
 }
