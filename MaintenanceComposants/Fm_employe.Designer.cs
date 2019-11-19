@@ -61,8 +61,13 @@
             this.gb_sexe = new System.Windows.Forms.GroupBox();
             this.rb_feminin = new System.Windows.Forms.RadioButton();
             this.rb_masculin = new System.Windows.Forms.RadioButton();
-            this.lesDiplomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bs_diplomesPossedes = new System.Windows.Forms.BindingSource(this.components);
             this.lb_diplomesPossedes = new System.Windows.Forms.ListBox();
+            this.lesDiplomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lb_autresDiplomes = new System.Windows.Forms.ListBox();
+            this.bt_versAutresDiplomes = new System.Windows.Forms.Button();
+            this.bt_versDiplomesPossedes = new System.Windows.Forms.Button();
+            this.bs_autresDiplomes = new System.Windows.Forms.BindingSource(this.components);
             emp_cadreLabel = new System.Windows.Forms.Label();
             emp_idLabel = new System.Windows.Forms.Label();
             emp_nomLabel = new System.Windows.Forms.Label();
@@ -75,13 +80,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.bs_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lesEmployesBindingSource)).BeginInit();
             this.gb_sexe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_diplomesPossedes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lesDiplomesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_autresDiplomes)).BeginInit();
             this.SuspendLayout();
             // 
             // emp_cadreLabel
             // 
             emp_cadreLabel.AutoSize = true;
-            emp_cadreLabel.Location = new System.Drawing.Point(30, 151);
+            emp_cadreLabel.Location = new System.Drawing.Point(47, 157);
             emp_cadreLabel.Name = "emp_cadreLabel";
             emp_cadreLabel.Size = new System.Drawing.Size(41, 13);
             emp_cadreLabel.TabIndex = 1;
@@ -90,7 +97,7 @@
             // emp_idLabel
             // 
             emp_idLabel.AutoSize = true;
-            emp_idLabel.Location = new System.Drawing.Point(30, 70);
+            emp_idLabel.Location = new System.Drawing.Point(47, 76);
             emp_idLabel.Name = "emp_idLabel";
             emp_idLabel.Size = new System.Drawing.Size(22, 13);
             emp_idLabel.TabIndex = 3;
@@ -100,7 +107,7 @@
             // emp_nomLabel
             // 
             emp_nomLabel.AutoSize = true;
-            emp_nomLabel.Location = new System.Drawing.Point(30, 99);
+            emp_nomLabel.Location = new System.Drawing.Point(47, 105);
             emp_nomLabel.Name = "emp_nomLabel";
             emp_nomLabel.Size = new System.Drawing.Size(35, 13);
             emp_nomLabel.TabIndex = 5;
@@ -109,7 +116,7 @@
             // emp_prenomLabel
             // 
             emp_prenomLabel.AutoSize = true;
-            emp_prenomLabel.Location = new System.Drawing.Point(30, 125);
+            emp_prenomLabel.Location = new System.Drawing.Point(47, 131);
             emp_prenomLabel.Name = "emp_prenomLabel";
             emp_prenomLabel.Size = new System.Drawing.Size(49, 13);
             emp_prenomLabel.TabIndex = 7;
@@ -118,7 +125,7 @@
             // emp_salaireLabel
             // 
             emp_salaireLabel.AutoSize = true;
-            emp_salaireLabel.Location = new System.Drawing.Point(30, 179);
+            emp_salaireLabel.Location = new System.Drawing.Point(47, 185);
             emp_salaireLabel.Name = "emp_salaireLabel";
             emp_salaireLabel.Size = new System.Drawing.Size(45, 13);
             emp_salaireLabel.TabIndex = 9;
@@ -154,7 +161,7 @@
             this.bn.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bn.Name = "bn";
             this.bn.PositionItem = this.bindingNavigatorPositionItem;
-            this.bn.Size = new System.Drawing.Size(971, 25);
+            this.bn.Size = new System.Drawing.Size(1050, 25);
             this.bn.TabIndex = 0;
             this.bn.Text = "bindingNavigator1";
             this.bn.RefreshItems += new System.EventHandler(this.employeBindingNavigator_RefreshItems);
@@ -256,7 +263,7 @@
             // emp_cadreCheckBox
             // 
             this.emp_cadreCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bs, "emp_cadre", true));
-            this.emp_cadreCheckBox.Location = new System.Drawing.Point(87, 146);
+            this.emp_cadreCheckBox.Location = new System.Drawing.Point(104, 152);
             this.emp_cadreCheckBox.Name = "emp_cadreCheckBox";
             this.emp_cadreCheckBox.Size = new System.Drawing.Size(104, 24);
             this.emp_cadreCheckBox.TabIndex = 2;
@@ -266,43 +273,43 @@
             // emp_idTextBox
             // 
             this.emp_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_id", true));
-            this.emp_idTextBox.Location = new System.Drawing.Point(87, 70);
+            this.emp_idTextBox.Location = new System.Drawing.Point(104, 76);
             this.emp_idTextBox.Name = "emp_idTextBox";
-            this.emp_idTextBox.Size = new System.Drawing.Size(104, 20);
+            this.emp_idTextBox.Size = new System.Drawing.Size(132, 20);
             this.emp_idTextBox.TabIndex = 4;
             // 
             // emp_nomTextBox
             // 
             this.emp_nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_nom", true));
-            this.emp_nomTextBox.Location = new System.Drawing.Point(87, 96);
+            this.emp_nomTextBox.Location = new System.Drawing.Point(104, 102);
             this.emp_nomTextBox.Name = "emp_nomTextBox";
-            this.emp_nomTextBox.Size = new System.Drawing.Size(104, 20);
+            this.emp_nomTextBox.Size = new System.Drawing.Size(132, 20);
             this.emp_nomTextBox.TabIndex = 6;
             // 
             // emp_prenomTextBox
             // 
             this.emp_prenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_prenom", true));
-            this.emp_prenomTextBox.Location = new System.Drawing.Point(87, 122);
+            this.emp_prenomTextBox.Location = new System.Drawing.Point(104, 128);
             this.emp_prenomTextBox.Name = "emp_prenomTextBox";
-            this.emp_prenomTextBox.Size = new System.Drawing.Size(104, 20);
+            this.emp_prenomTextBox.Size = new System.Drawing.Size(132, 20);
             this.emp_prenomTextBox.TabIndex = 8;
             // 
             // emp_salaireTextBox
             // 
             this.emp_salaireTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "emp_salaire", true));
-            this.emp_salaireTextBox.Location = new System.Drawing.Point(87, 176);
+            this.emp_salaireTextBox.Location = new System.Drawing.Point(104, 182);
             this.emp_salaireTextBox.Name = "emp_salaireTextBox";
-            this.emp_salaireTextBox.Size = new System.Drawing.Size(104, 20);
+            this.emp_salaireTextBox.Size = new System.Drawing.Size(132, 20);
             this.emp_salaireTextBox.TabIndex = 10;
             // 
             // leServiceLabel
             // 
             leServiceLabel.AutoSize = true;
-            leServiceLabel.Location = new System.Drawing.Point(232, 179);
+            leServiceLabel.Location = new System.Drawing.Point(399, 184);
             leServiceLabel.Name = "leServiceLabel";
-            leServiceLabel.Size = new System.Drawing.Size(49, 13);
+            leServiceLabel.Size = new System.Drawing.Size(46, 13);
             leServiceLabel.TabIndex = 15;
-            leServiceLabel.Text = "Service :";
+            leServiceLabel.Text = "Service:";
             leServiceLabel.Click += new System.EventHandler(this.leServiceLabel_Click);
             // 
             // cb_service
@@ -312,7 +319,7 @@
             this.cb_service.DataSource = this.bs_service;
             this.cb_service.DisplayMember = "ser_designation";
             this.cb_service.FormattingEnabled = true;
-            this.cb_service.Location = new System.Drawing.Point(299, 176);
+            this.cb_service.Location = new System.Drawing.Point(451, 181);
             this.cb_service.Name = "cb_service";
             this.cb_service.Size = new System.Drawing.Size(137, 21);
             this.cb_service.TabIndex = 16;
@@ -331,9 +338,9 @@
             // 
             this.gb_sexe.Controls.Add(this.rb_masculin);
             this.gb_sexe.Controls.Add(this.rb_feminin);
-            this.gb_sexe.Location = new System.Drawing.Point(235, 70);
+            this.gb_sexe.Location = new System.Drawing.Point(402, 76);
             this.gb_sexe.Name = "gb_sexe";
-            this.gb_sexe.Size = new System.Drawing.Size(201, 74);
+            this.gb_sexe.Size = new System.Drawing.Size(186, 74);
             this.gb_sexe.TabIndex = 17;
             this.gb_sexe.TabStop = false;
             this.gb_sexe.Text = "Sexe";
@@ -342,7 +349,7 @@
             // 
             this.rb_feminin.AutoSize = true;
             this.rb_feminin.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs, "IsFemme", true));
-            this.rb_feminin.Location = new System.Drawing.Point(25, 29);
+            this.rb_feminin.Location = new System.Drawing.Point(15, 29);
             this.rb_feminin.Name = "rb_feminin";
             this.rb_feminin.Size = new System.Drawing.Size(61, 17);
             this.rb_feminin.TabIndex = 0;
@@ -355,7 +362,7 @@
             // 
             this.rb_masculin.AutoSize = true;
             this.rb_masculin.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs, "IsHomme", true));
-            this.rb_masculin.Location = new System.Drawing.Point(115, 29);
+            this.rb_masculin.Location = new System.Drawing.Point(104, 29);
             this.rb_masculin.Name = "rb_masculin";
             this.rb_masculin.Size = new System.Drawing.Size(67, 17);
             this.rb_masculin.TabIndex = 1;
@@ -363,28 +370,71 @@
             this.rb_masculin.Text = "Masculin";
             this.rb_masculin.UseVisualStyleBackColor = true;
             // 
+            // bs_diplomesPossedes
+            // 
+            this.bs_diplomesPossedes.DataMember = "LesDiplomes";
+            this.bs_diplomesPossedes.DataSource = this.bs;
+            this.bs_diplomesPossedes.CurrentChanged += new System.EventHandler(this.lesDiplomesBindingSource_CurrentChanged);
+            // 
+            // lb_diplomesPossedes
+            // 
+            this.lb_diplomesPossedes.DataSource = this.bs_diplomesPossedes;
+            this.lb_diplomesPossedes.DisplayMember = "dip_libelle";
+            this.lb_diplomesPossedes.FormattingEnabled = true;
+            this.lb_diplomesPossedes.Location = new System.Drawing.Point(50, 246);
+            this.lb_diplomesPossedes.Name = "lb_diplomesPossedes";
+            this.lb_diplomesPossedes.Size = new System.Drawing.Size(186, 134);
+            this.lb_diplomesPossedes.TabIndex = 17;
+            this.lb_diplomesPossedes.ValueMember = "dip_id";
+            // 
             // lesDiplomesBindingSource
             // 
             this.lesDiplomesBindingSource.DataMember = "LesDiplomes";
             this.lesDiplomesBindingSource.DataSource = this.bs;
             // 
-            // lb_diplomesPossedes
+            // lb_autresDiplomes
             // 
-            this.lb_diplomesPossedes.DataSource = this.lesEmployesBindingSource;
-            this.lb_diplomesPossedes.FormattingEnabled = true;
-            this.lb_diplomesPossedes.Location = new System.Drawing.Point(472, 70);
-            this.lb_diplomesPossedes.Name = "lb_diplomesPossedes";
-            this.lb_diplomesPossedes.Size = new System.Drawing.Size(300, 212);
-            this.lb_diplomesPossedes.TabIndex = 17;
-            this.lb_diplomesPossedes.ValueMember = "dip_id";
-            this.lb_diplomesPossedes.SelectedIndexChanged += new System.EventHandler(this.lb_diplomesPossedes_SelectedIndexChanged);
+            this.lb_autresDiplomes.DataSource = this.lesDiplomesBindingSource;
+            this.lb_autresDiplomes.DisplayMember = "dip_libelle";
+            this.lb_autresDiplomes.FormattingEnabled = true;
+            this.lb_autresDiplomes.Location = new System.Drawing.Point(402, 246);
+            this.lb_autresDiplomes.Name = "lb_autresDiplomes";
+            this.lb_autresDiplomes.Size = new System.Drawing.Size(186, 134);
+            this.lb_autresDiplomes.TabIndex = 17;
+            this.lb_autresDiplomes.ValueMember = "dip_id";
+            // 
+            // bt_versAutresDiplomes
+            // 
+            this.bt_versAutresDiplomes.Location = new System.Drawing.Point(285, 262);
+            this.bt_versAutresDiplomes.Name = "bt_versAutresDiplomes";
+            this.bt_versAutresDiplomes.Size = new System.Drawing.Size(48, 39);
+            this.bt_versAutresDiplomes.TabIndex = 18;
+            this.bt_versAutresDiplomes.Text = ">>";
+            this.bt_versAutresDiplomes.UseVisualStyleBackColor = true;
+            this.bt_versAutresDiplomes.Click += new System.EventHandler(this.bt_versAutresDiplomes_Click);
+            // 
+            // bt_versDiplomesPossedes
+            // 
+            this.bt_versDiplomesPossedes.Location = new System.Drawing.Point(285, 320);
+            this.bt_versDiplomesPossedes.Name = "bt_versDiplomesPossedes";
+            this.bt_versDiplomesPossedes.Size = new System.Drawing.Size(48, 39);
+            this.bt_versDiplomesPossedes.TabIndex = 19;
+            this.bt_versDiplomesPossedes.Text = "<<";
+            this.bt_versDiplomesPossedes.UseVisualStyleBackColor = true;
+            this.bt_versDiplomesPossedes.Click += new System.EventHandler(this.bt_versDiplomesPossedes_Click);
+            // 
+            // bs_autresDiplomes
+            // 
+            this.bs_autresDiplomes.DataSource = this.lb_autresDiplomes.CustomTabOffsets;
             // 
             // Fm_employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 450);
-            this.Controls.Add(this.lb_diplomesPossedes);
+            this.ClientSize = new System.Drawing.Size(1050, 450);
+            this.Controls.Add(this.bt_versDiplomesPossedes);
+            this.Controls.Add(this.bt_versAutresDiplomes);
+            this.Controls.Add(this.lb_autresDiplomes);
             this.Controls.Add(this.gb_sexe);
             this.Controls.Add(leServiceLabel);
             this.Controls.Add(this.cb_service);
@@ -399,6 +449,7 @@
             this.Controls.Add(emp_salaireLabel);
             this.Controls.Add(this.emp_salaireTextBox);
             this.Controls.Add(this.bn);
+            this.Controls.Add(this.lb_diplomesPossedes);
             this.Name = "Fm_employe";
             this.Text = "Fm_employe";
             this.Load += new System.EventHandler(this.Fm_employe_Load);
@@ -410,7 +461,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lesEmployesBindingSource)).EndInit();
             this.gb_sexe.ResumeLayout(false);
             this.gb_sexe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_diplomesPossedes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lesDiplomesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_autresDiplomes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,7 +496,12 @@
         private System.Windows.Forms.GroupBox gb_sexe;
         private System.Windows.Forms.RadioButton rb_masculin;
         private System.Windows.Forms.RadioButton rb_feminin;
-        private System.Windows.Forms.BindingSource lesDiplomesBindingSource;
+        private System.Windows.Forms.BindingSource bs_diplomesPossedes;
         private System.Windows.Forms.ListBox lb_diplomesPossedes;
+        private System.Windows.Forms.BindingSource lesDiplomesBindingSource;
+        private System.Windows.Forms.ListBox lb_autresDiplomes;
+        private System.Windows.Forms.Button bt_versAutresDiplomes;
+        private System.Windows.Forms.Button bt_versDiplomesPossedes;
+        private System.Windows.Forms.BindingSource bs_autresDiplomes;
     }
 }

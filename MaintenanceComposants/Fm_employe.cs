@@ -20,11 +20,7 @@ namespace MaintenanceComposants
             bd = p_bd;
             bs.DataSource = bd.Employe;//affiche les employes dans les cases
             bs_service.DataSource = bd.Service;//affiche la ComboBox
-
-
-
-
-
+            bs.DataSource = bd.Employe.Include("LesDiplomes");
 
         }
 
@@ -66,6 +62,46 @@ namespace MaintenanceComposants
         private void lb_diplomesPossedes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lesDiplomesBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_versAutresDiplomes_Click(object sender, EventArgs e)
+        {
+            if(bs.Current != null)
+            {
+                if(lb_diplomesPossedes.SelectedIndex != -1)
+                {
+                    Employe leEmploye = (Employe)bs.Current;
+                    Diplome leDiplome = (Diplome)lb_diplomesPossedes.SelectedItem;
+                    leEmploye.LesDiplomes.Remove(leDiplome);
+                    bs_autresDiplomes.Add(leDiplome);
+
+
+                }
+            }
+        }
+
+        private void bt_versDiplomesPossedes_Click(object sender, EventArgs e)
+        {
+            if(bs.Current != null)
+            {
+                if(lb_autresDiplomes.SelectedIndex != -1)
+                {
+                    Employe leEmploye = (Employe)bs.Current;
+                    Diplome leDiplome = (Diplome)lb_autresDiplomes.SelectedItem;
+                    leEmploye.LesDiplomes.Add(leDiplome);
+                    bs_autresDiplomes.Remove(leDiplome);
+                }
+            }
         }
     }
 }
