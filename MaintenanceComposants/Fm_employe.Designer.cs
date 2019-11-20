@@ -68,6 +68,8 @@
             this.bt_versAutresDiplomes = new System.Windows.Forms.Button();
             this.bt_versDiplomesPossedes = new System.Windows.Forms.Button();
             this.bs_autresDiplomes = new System.Windows.Forms.BindingSource(this.components);
+            this.cb_recherche = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             emp_cadreLabel = new System.Windows.Forms.Label();
             emp_idLabel = new System.Windows.Forms.Label();
             emp_nomLabel = new System.Windows.Forms.Label();
@@ -396,8 +398,7 @@
             // 
             // lb_autresDiplomes
             // 
-            this.lb_autresDiplomes.DataSource = this.lesDiplomesBindingSource;
-            this.lb_autresDiplomes.DisplayMember = "dip_libelle";
+            this.lb_autresDiplomes.DataSource = this.bs_autresDiplomes;
             this.lb_autresDiplomes.FormattingEnabled = true;
             this.lb_autresDiplomes.Location = new System.Drawing.Point(402, 246);
             this.lb_autresDiplomes.Name = "lb_autresDiplomes";
@@ -429,11 +430,33 @@
             // 
             this.bs_autresDiplomes.DataSource = this.lb_autresDiplomes.CustomTabOffsets;
             // 
+            // cb_recherche
+            // 
+            this.cb_recherche.DataSource = this.bs;
+            this.cb_recherche.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_recherche.FormattingEnabled = true;
+            this.cb_recherche.Location = new System.Drawing.Point(679, 76);
+            this.cb_recherche.Name = "cb_recherche";
+            this.cb_recherche.Size = new System.Drawing.Size(121, 21);
+            this.cb_recherche.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(613, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Recherche";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Fm_employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cb_recherche);
             this.Controls.Add(this.bt_versDiplomesPossedes);
             this.Controls.Add(this.bt_versAutresDiplomes);
             this.Controls.Add(this.lb_autresDiplomes);
@@ -505,5 +528,7 @@
         private System.Windows.Forms.Button bt_versAutresDiplomes;
         private System.Windows.Forms.Button bt_versDiplomesPossedes;
         private System.Windows.Forms.BindingSource bs_autresDiplomes;
+        private System.Windows.Forms.ComboBox cb_recherche;
+        private System.Windows.Forms.Label label1;
     }
 }

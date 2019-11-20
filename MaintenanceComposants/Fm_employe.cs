@@ -21,6 +21,7 @@ namespace MaintenanceComposants
             bs.DataSource = bd.Employe;//affiche les employes dans les cases
             bs_service.DataSource = bd.Service;//affiche la ComboBox
             bs.DataSource = bd.Employe.Include("LesDiplomes");
+            cb_recherche.DisplayMember = "Patronyme";//affiche les champs Patronyme de la liste déroulante
 
         }
 
@@ -82,6 +83,7 @@ namespace MaintenanceComposants
                 {
                     Employe leEmploye = (Employe)bs.Current;
                     Diplome leDiplome = (Diplome)lb_diplomesPossedes.SelectedItem;
+
                     leEmploye.LesDiplomes.Remove(leDiplome);
                     bs_autresDiplomes.Add(leDiplome);
 
@@ -100,6 +102,8 @@ namespace MaintenanceComposants
                     Diplome leDiplome = (Diplome)lb_autresDiplomes.SelectedItem;
                     leEmploye.LesDiplomes.Add(leDiplome);
                     bs_autresDiplomes.Remove(leDiplome);
+
+
                 }
             }
         }
@@ -153,6 +157,11 @@ namespace MaintenanceComposants
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
