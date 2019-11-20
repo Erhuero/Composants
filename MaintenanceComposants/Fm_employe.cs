@@ -103,5 +103,58 @@ namespace MaintenanceComposants
                 }
             }
         }
+
+        private void bs_CurrentChanged(object sender, EventArgs e)
+        {
+            if(bs.Current != null)
+            {
+                Employe leEmploye = (Employe)bs.Current;
+                if(leEmploye.LeService==null)
+                {
+                    cb_service.SelectedIndex = -1;//il faut forcer la propriété SelectedIndex de cb_service
+                    //a -1 dans le cas des valeurs nulles pour la propriété LeService
+                }
+                if(leEmploye.EntityState == EntityState.Detached)
+                {
+                    bs.EndEdit();
+                    bs.RaiseListChangedEvents = false;
+                    bd.SaveChanges();
+                    bs.RaiseListChangedEvents = true;
+                    bs.ResetCurrentItem();
+                }
+                else
+                {
+                    bd.SaveChanges();
+                }
+
+                bs_autresDiplomes.DataSource = bd.Diplome.ToList().Except(leEmploye.LesDiplomes).ToList();//l'appel de la méthode ToList lors de l'affectation du DataSource
+                //de bs_autresDiplomes force la requete Linq à s'éxécuter
+                //en l'abscence du dernier ToList(), l'affectation de DisplayMember ci-dessous échoue avec une liste vide    
+                lb_autresDiplomes.DisplayMember = "dip_libelle";
+            }
+        }
+
+        private void employeBindingNavigatorSaveItem_Click(object sender, EventArgs e)//rendre le bouton actif avec la commande Enabled
+        {
+            if(bs.Current != null)
+            {
+                bs.EndEdit();
+                bd.SaveChanges();//sauvegarde de données dans la base
+            }
+        }
+
+        private void Fm_employe_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(bs.Current != null)
+            {
+                bs.EndEdit();
+                bd.SaveChanges();
+            }
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

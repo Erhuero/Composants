@@ -134,6 +134,7 @@
             // bs
             // 
             this.bs.DataSource = typeof(MaintenanceComposants.Employe);
+            this.bs.CurrentChanged += new System.EventHandler(this.bs_CurrentChanged);
             // 
             // bn
             // 
@@ -190,6 +191,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Supprimer";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -254,11 +256,11 @@
             // employeBindingNavigatorSaveItem
             // 
             this.employeBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.employeBindingNavigatorSaveItem.Enabled = false;
             this.employeBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("employeBindingNavigatorSaveItem.Image")));
             this.employeBindingNavigatorSaveItem.Name = "employeBindingNavigatorSaveItem";
             this.employeBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.employeBindingNavigatorSaveItem.Text = "Enregistrer les données";
+            this.employeBindingNavigatorSaveItem.Click += new System.EventHandler(this.employeBindingNavigatorSaveItem_Click);
             // 
             // emp_cadreCheckBox
             // 
