@@ -7,9 +7,13 @@
       <Diagram DiagramId="6573494cba9c4ca9b18f74ac61f0a6f9" Name="Diagram1">
         <EntityTypeShape EntityType="EntityFramework.Diplome" Width="1.5" PointX="0.5" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EntityFramework.Employe" Width="1.5" PointX="2.875" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntityFramework.Service" Width="1.5" PointX="5.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.Service" Width="1.5" PointX="5.125" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="EntityFramework.FK__Employe__emp_ser__3D5E1FD2" ManuallyRouted="false" />
         <AssociationConnector Association="EntityFramework.Posseder" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EntityFramework.SceProductif" Width="1.75" PointX="7.25" PointY="0.75" />
+        <InheritanceConnector EntityType="EntityFramework.SceProductif" />
+        <EntityTypeShape EntityType="EntityFramework.SceAdministratif" Width="1.75" PointX="7.25" PointY="2.5" />
+        <InheritanceConnector EntityType="EntityFramework.SceAdministratif" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

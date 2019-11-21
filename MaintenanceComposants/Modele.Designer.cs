@@ -529,9 +529,147 @@ namespace MaintenanceComposants
     /// <summary>
     /// Aucune documentation sur les métadonnées n'est disponible.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EntityFramework", Name="SceAdministratif")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SceAdministratif : Service
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet SceAdministratif.
+        /// </summary>
+        /// <param name="ser_id">Valeur initiale de la propriété ser_id.</param>
+        /// <param name="ser_budget">Valeur initiale de la propriété ser_budget.</param>
+        public static SceAdministratif CreateSceAdministratif(global::System.Int32 ser_id, global::System.Decimal ser_budget)
+        {
+            SceAdministratif sceAdministratif = new SceAdministratif();
+            sceAdministratif.ser_id = ser_id;
+            sceAdministratif.ser_budget = ser_budget;
+            return sceAdministratif;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal ser_budget
+        {
+            get
+            {
+                return _ser_budget;
+            }
+            set
+            {
+                Onser_budgetChanging(value);
+                ReportPropertyChanging("ser_budget");
+                _ser_budget = StructuralObject.SetValidValue(value, "ser_budget");
+                ReportPropertyChanged("ser_budget");
+                Onser_budgetChanged();
+            }
+        }
+        private global::System.Decimal _ser_budget;
+        partial void Onser_budgetChanging(global::System.Decimal value);
+        partial void Onser_budgetChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EntityFramework", Name="SceProductif")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SceProductif : Service
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet SceProductif.
+        /// </summary>
+        /// <param name="ser_id">Valeur initiale de la propriété ser_id.</param>
+        /// <param name="ser_produit">Valeur initiale de la propriété ser_produit.</param>
+        /// <param name="ser_capacite">Valeur initiale de la propriété ser_capacite.</param>
+        public static SceProductif CreateSceProductif(global::System.Int32 ser_id, global::System.String ser_produit, global::System.Int32 ser_capacite)
+        {
+            SceProductif sceProductif = new SceProductif();
+            sceProductif.ser_id = ser_id;
+            sceProductif.ser_produit = ser_produit;
+            sceProductif.ser_capacite = ser_capacite;
+            return sceProductif;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ser_produit
+        {
+            get
+            {
+                return _ser_produit;
+            }
+            set
+            {
+                Onser_produitChanging(value);
+                ReportPropertyChanging("ser_produit");
+                _ser_produit = StructuralObject.SetValidValue(value, false, "ser_produit");
+                ReportPropertyChanged("ser_produit");
+                Onser_produitChanged();
+            }
+        }
+        private global::System.String _ser_produit;
+        partial void Onser_produitChanging(global::System.String value);
+        partial void Onser_produitChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ser_capacite
+        {
+            get
+            {
+                return _ser_capacite;
+            }
+            set
+            {
+                Onser_capaciteChanging(value);
+                ReportPropertyChanging("ser_capacite");
+                _ser_capacite = StructuralObject.SetValidValue(value, "ser_capacite");
+                ReportPropertyChanged("ser_capacite");
+                Onser_capaciteChanged();
+            }
+        }
+        private global::System.Int32 _ser_capacite;
+        partial void Onser_capaciteChanging(global::System.Int32 value);
+        partial void Onser_capaciteChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="EntityFramework", Name="Service")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [KnownTypeAttribute(typeof(SceProductif))]
+    [KnownTypeAttribute(typeof(SceAdministratif))]
     public partial class Service : EntityObject
     {
         #region Méthode de fabrique
@@ -601,102 +739,6 @@ namespace MaintenanceComposants
         private global::System.String _ser_designation;
         partial void Onser_designationChanging(global::System.String value);
         partial void Onser_designationChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ser_type
-        {
-            get
-            {
-                return _ser_type;
-            }
-            set
-            {
-                Onser_typeChanging(value);
-                ReportPropertyChanging("ser_type");
-                _ser_type = StructuralObject.SetValidValue(value, true, "ser_type");
-                ReportPropertyChanged("ser_type");
-                Onser_typeChanged();
-            }
-        }
-        private global::System.String _ser_type;
-        partial void Onser_typeChanging(global::System.String value);
-        partial void Onser_typeChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ser_produit
-        {
-            get
-            {
-                return _ser_produit;
-            }
-            set
-            {
-                Onser_produitChanging(value);
-                ReportPropertyChanging("ser_produit");
-                _ser_produit = StructuralObject.SetValidValue(value, true, "ser_produit");
-                ReportPropertyChanged("ser_produit");
-                Onser_produitChanged();
-            }
-        }
-        private global::System.String _ser_produit;
-        partial void Onser_produitChanging(global::System.String value);
-        partial void Onser_produitChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ser_capacite
-        {
-            get
-            {
-                return _ser_capacite;
-            }
-            set
-            {
-                Onser_capaciteChanging(value);
-                ReportPropertyChanging("ser_capacite");
-                _ser_capacite = StructuralObject.SetValidValue(value, "ser_capacite");
-                ReportPropertyChanged("ser_capacite");
-                Onser_capaciteChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ser_capacite;
-        partial void Onser_capaciteChanging(Nullable<global::System.Int32> value);
-        partial void Onser_capaciteChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> ser_budget
-        {
-            get
-            {
-                return _ser_budget;
-            }
-            set
-            {
-                Onser_budgetChanging(value);
-                ReportPropertyChanging("ser_budget");
-                _ser_budget = StructuralObject.SetValidValue(value, "ser_budget");
-                ReportPropertyChanged("ser_budget");
-                Onser_budgetChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _ser_budget;
-        partial void Onser_budgetChanging(Nullable<global::System.Decimal> value);
-        partial void Onser_budgetChanged();
 
         #endregion
 

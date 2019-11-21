@@ -30,5 +30,12 @@ namespace MaintenanceComposants
             Fm_employe femp = new Fm_employe(bd);
             femp.ShowDialog();
         }
+
+        private void bt_service_Click(object sender, EventArgs e)
+        {
+            Fm_service fmen = new Fm_service(bd);
+            fmen.ShowDialog();
+
+        }
     }
 }

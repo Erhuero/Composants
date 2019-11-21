@@ -30,11 +30,12 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.bt_service = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(173, 149);
+            this.button1.Location = new System.Drawing.Point(57, 149);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 119);
             this.button1.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(463, 149);
+            this.button2.Location = new System.Drawing.Point(318, 149);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 119);
             this.button2.TabIndex = 1;
@@ -52,11 +53,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.bt_employe);
             // 
+            // bt_service
+            // 
+            this.bt_service.Location = new System.Drawing.Point(570, 149);
+            this.bt_service.Name = "bt_service";
+            this.bt_service.Size = new System.Drawing.Size(174, 119);
+            this.bt_service.TabIndex = 2;
+            this.bt_service.Text = "Menu service";
+            this.bt_service.UseVisualStyleBackColor = true;
+            this.bt_service.Click += new System.EventHandler(this.bt_service_Click);
+            // 
             // Fm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bt_service);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Fm_menu";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt_service;
     }
 }
 

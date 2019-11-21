@@ -130,10 +130,6 @@
           </Key>
           <Property Name="ser_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ser_designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ser_type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="ser_produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ser_capacite" Type="Int32" />
-          <Property Name="ser_budget" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="LesEmployes" Relationship="Self.FK__Employe__emp_ser__3D5E1FD2" FromRole="Service" ToRole="Employe" />
         </EntityType>
         <Association Name="FK__Employe__emp_ser__3D5E1FD2">
@@ -165,6 +161,13 @@
             <End Role="Employe" EntitySet="Employe" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SceProductif" BaseType="EntityFramework.Service" >
+          <Property Name="ser_produit" Type="String" Nullable="false" />
+          <Property Name="ser_capacite" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SceAdministratif" BaseType="EntityFramework.Service" >
+          <Property Name="ser_budget" Type="Decimal" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -193,14 +196,25 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Service">
-            <EntityTypeMapping TypeName="EntityFramework.Service">
+            <EntityTypeMapping TypeName="IsTypeOf(EntityFramework.Service)">
               <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="ser_id" ColumnName="ser_id" />
                 <ScalarProperty Name="ser_designation" ColumnName="ser_designation" />
-                <ScalarProperty Name="ser_type" ColumnName="ser_type" />
-                <ScalarProperty Name="ser_produit" ColumnName="ser_produit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(EntityFramework.SceProductif)">
+              <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="ser_capacite" ColumnName="ser_capacite" />
+                <ScalarProperty Name="ser_produit" ColumnName="ser_produit" />
+                <ScalarProperty Name="ser_id" ColumnName="ser_id" />
+                <Condition ColumnName="ser_type" Value="P" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(EntityFramework.SceAdministratif)">
+              <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="ser_budget" ColumnName="ser_budget" />
+                <ScalarProperty Name="ser_id" ColumnName="ser_id" />
+                <Condition ColumnName="ser_type" Value="A" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
