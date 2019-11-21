@@ -66,6 +66,12 @@
     <Compile Include="Fm_employe.Designer.cs">
       <DependentUpon>Fm_employe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fm_employeGrille.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_employeGrille.Designer.cs">
+      <DependentUpon>Fm_employeGrille.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fm_menu.cs">
       <SubType>Form</SubType>
     </Compile>

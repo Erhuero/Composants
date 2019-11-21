@@ -12,7 +12,7 @@ namespace MaintenanceComposants
         {
             get
             {
-                return emp_nom + "" + emp_prenom;
+                return emp_prenom + " " + emp_nom;
             }
         }
 

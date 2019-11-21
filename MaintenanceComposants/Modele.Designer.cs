@@ -595,13 +595,11 @@ namespace MaintenanceComposants
         /// Créez un nouvel objet SceProductif.
         /// </summary>
         /// <param name="ser_id">Valeur initiale de la propriété ser_id.</param>
-        /// <param name="ser_produit">Valeur initiale de la propriété ser_produit.</param>
         /// <param name="ser_capacite">Valeur initiale de la propriété ser_capacite.</param>
-        public static SceProductif CreateSceProductif(global::System.Int32 ser_id, global::System.String ser_produit, global::System.Int32 ser_capacite)
+        public static SceProductif CreateSceProductif(global::System.Int32 ser_id, global::System.Int32 ser_capacite)
         {
             SceProductif sceProductif = new SceProductif();
             sceProductif.ser_id = ser_id;
-            sceProductif.ser_produit = ser_produit;
             sceProductif.ser_capacite = ser_capacite;
             return sceProductif;
         }
@@ -613,7 +611,7 @@ namespace MaintenanceComposants
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String ser_produit
         {
@@ -625,7 +623,7 @@ namespace MaintenanceComposants
             {
                 Onser_produitChanging(value);
                 ReportPropertyChanging("ser_produit");
-                _ser_produit = StructuralObject.SetValidValue(value, false, "ser_produit");
+                _ser_produit = StructuralObject.SetValidValue(value, true, "ser_produit");
                 ReportPropertyChanged("ser_produit");
                 Onser_produitChanged();
             }

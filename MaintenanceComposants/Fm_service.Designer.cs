@@ -31,13 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label ser_designationLabel;
             System.Windows.Forms.Label ser_idLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fm_service));
             System.Windows.Forms.Label ser_budgetLabel;
             System.Windows.Forms.Label ser_capaciteLabel;
             System.Windows.Forms.Label ser_produitLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fm_service));
             this.bs = new System.Windows.Forms.BindingSource(this.components);
             this.bn = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -57,10 +56,12 @@
             this.ser_capaciteTextBox = new System.Windows.Forms.TextBox();
             this.ser_produitTextBox = new System.Windows.Forms.TextBox();
             this.gb_type = new System.Windows.Forms.GroupBox();
-            this.rb_productif = new System.Windows.Forms.RadioButton();
             this.rb_administratif = new System.Windows.Forms.RadioButton();
+            this.rb_productif = new System.Windows.Forms.RadioButton();
             this.pn_productif = new System.Windows.Forms.Panel();
             this.pn_administratif = new System.Windows.Forms.Panel();
+            this.bt_plusProductif = new System.Windows.Forms.Button();
+            this.bt_plusAdministratif = new System.Windows.Forms.Button();
             ser_designationLabel = new System.Windows.Forms.Label();
             ser_idLabel = new System.Windows.Forms.Label();
             ser_budgetLabel = new System.Windows.Forms.Label();
@@ -80,18 +81,45 @@
             ser_designationLabel.AutoSize = true;
             ser_designationLabel.Location = new System.Drawing.Point(4, 69);
             ser_designationLabel.Name = "ser_designationLabel";
-            ser_designationLabel.Size = new System.Drawing.Size(81, 13);
+            ser_designationLabel.Size = new System.Drawing.Size(69, 13);
             ser_designationLabel.TabIndex = 1;
-            ser_designationLabel.Text = "ser designation:";
+            ser_designationLabel.Text = "Designation :";
             // 
             // ser_idLabel
             // 
             ser_idLabel.AutoSize = true;
             ser_idLabel.Location = new System.Drawing.Point(4, 10);
             ser_idLabel.Name = "ser_idLabel";
-            ser_idLabel.Size = new System.Drawing.Size(35, 13);
+            ser_idLabel.Size = new System.Drawing.Size(22, 13);
             ser_idLabel.TabIndex = 3;
-            ser_idLabel.Text = "ser id:";
+            ser_idLabel.Text = "Id :";
+            // 
+            // ser_budgetLabel
+            // 
+            ser_budgetLabel.AutoSize = true;
+            ser_budgetLabel.Location = new System.Drawing.Point(4, 38);
+            ser_budgetLabel.Name = "ser_budgetLabel";
+            ser_budgetLabel.Size = new System.Drawing.Size(47, 13);
+            ser_budgetLabel.TabIndex = 6;
+            ser_budgetLabel.Text = "Budget :";
+            // 
+            // ser_capaciteLabel
+            // 
+            ser_capaciteLabel.AutoSize = true;
+            ser_capaciteLabel.Location = new System.Drawing.Point(14, 26);
+            ser_capaciteLabel.Name = "ser_capaciteLabel";
+            ser_capaciteLabel.Size = new System.Drawing.Size(55, 13);
+            ser_capaciteLabel.TabIndex = 8;
+            ser_capaciteLabel.Text = "Capacite :";
+            // 
+            // ser_produitLabel
+            // 
+            ser_produitLabel.AutoSize = true;
+            ser_produitLabel.Location = new System.Drawing.Point(14, 52);
+            ser_produitLabel.Name = "ser_produitLabel";
+            ser_produitLabel.Size = new System.Drawing.Size(46, 13);
+            ser_produitLabel.TabIndex = 10;
+            ser_produitLabel.Text = "Produit :";
             // 
             // bs
             // 
@@ -100,10 +128,10 @@
             // 
             // bn
             // 
-            this.bn.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bn.AddNewItem = null;
             this.bn.BindingSource = this.bs;
             this.bn.CountItem = this.bindingNavigatorCountItem;
-            this.bn.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bn.DeleteItem = null;
             this.bn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -114,7 +142,6 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.serviceBindingNavigatorSaveItem});
             this.bn.Location = new System.Drawing.Point(0, 0);
@@ -127,15 +154,6 @@
             this.bn.Size = new System.Drawing.Size(800, 25);
             this.bn.TabIndex = 0;
             this.bn.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
             // 
             // bindingNavigatorCountItem
             // 
@@ -152,6 +170,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Supprimer";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -221,6 +240,7 @@
             this.serviceBindingNavigatorSaveItem.Name = "serviceBindingNavigatorSaveItem";
             this.serviceBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.serviceBindingNavigatorSaveItem.Text = "Enregistrer les données";
+            this.serviceBindingNavigatorSaveItem.Click += new System.EventHandler(this.serviceBindingNavigatorSaveItem_Click);
             // 
             // ser_designationComboBox
             // 
@@ -256,15 +276,6 @@
             this.lb_employe.TabIndex = 5;
             this.lb_employe.ValueMember = "emp_id";
             // 
-            // ser_budgetLabel
-            // 
-            ser_budgetLabel.AutoSize = true;
-            ser_budgetLabel.Location = new System.Drawing.Point(4, 38);
-            ser_budgetLabel.Name = "ser_budgetLabel";
-            ser_budgetLabel.Size = new System.Drawing.Size(60, 13);
-            ser_budgetLabel.TabIndex = 6;
-            ser_budgetLabel.Text = "ser budget:";
-            // 
             // ser_budgetTextBox
             // 
             this.ser_budgetTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "Produit", true));
@@ -273,15 +284,6 @@
             this.ser_budgetTextBox.Size = new System.Drawing.Size(121, 20);
             this.ser_budgetTextBox.TabIndex = 7;
             // 
-            // ser_capaciteLabel
-            // 
-            ser_capaciteLabel.AutoSize = true;
-            ser_capaciteLabel.Location = new System.Drawing.Point(14, 26);
-            ser_capaciteLabel.Name = "ser_capaciteLabel";
-            ser_capaciteLabel.Size = new System.Drawing.Size(68, 13);
-            ser_capaciteLabel.TabIndex = 8;
-            ser_capaciteLabel.Text = "ser capacite:";
-            // 
             // ser_capaciteTextBox
             // 
             this.ser_capaciteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs, "Produit", true));
@@ -289,15 +291,6 @@
             this.ser_capaciteTextBox.Name = "ser_capaciteTextBox";
             this.ser_capaciteTextBox.Size = new System.Drawing.Size(121, 20);
             this.ser_capaciteTextBox.TabIndex = 9;
-            // 
-            // ser_produitLabel
-            // 
-            ser_produitLabel.AutoSize = true;
-            ser_produitLabel.Location = new System.Drawing.Point(14, 52);
-            ser_produitLabel.Name = "ser_produitLabel";
-            ser_produitLabel.Size = new System.Drawing.Size(59, 13);
-            ser_produitLabel.TabIndex = 10;
-            ser_produitLabel.Text = "ser produit:";
             // 
             // ser_produitTextBox
             // 
@@ -311,17 +304,29 @@
             // 
             this.gb_type.Controls.Add(this.rb_administratif);
             this.gb_type.Controls.Add(this.rb_productif);
-            this.gb_type.Location = new System.Drawing.Point(274, 166);
+            this.gb_type.Location = new System.Drawing.Point(274, 150);
             this.gb_type.Name = "gb_type";
-            this.gb_type.Size = new System.Drawing.Size(239, 92);
+            this.gb_type.Size = new System.Drawing.Size(239, 108);
             this.gb_type.TabIndex = 12;
             this.gb_type.TabStop = false;
+            // 
+            // rb_administratif
+            // 
+            this.rb_administratif.AutoSize = true;
+            this.rb_administratif.Enabled = false;
+            this.rb_administratif.Location = new System.Drawing.Point(131, 47);
+            this.rb_administratif.Name = "rb_administratif";
+            this.rb_administratif.Size = new System.Drawing.Size(81, 17);
+            this.rb_administratif.TabIndex = 1;
+            this.rb_administratif.TabStop = true;
+            this.rb_administratif.Text = "Administratif";
+            this.rb_administratif.UseVisualStyleBackColor = true;
             // 
             // rb_productif
             // 
             this.rb_productif.AutoSize = true;
             this.rb_productif.Enabled = false;
-            this.rb_productif.Location = new System.Drawing.Point(15, 38);
+            this.rb_productif.Location = new System.Drawing.Point(20, 47);
             this.rb_productif.Name = "rb_productif";
             this.rb_productif.Size = new System.Drawing.Size(67, 17);
             this.rb_productif.TabIndex = 0;
@@ -329,18 +334,6 @@
             this.rb_productif.Text = "Productif";
             this.rb_productif.UseVisualStyleBackColor = true;
             this.rb_productif.CheckedChanged += new System.EventHandler(this.rb_productif_CheckedChanged);
-            // 
-            // rb_administratif
-            // 
-            this.rb_administratif.AutoSize = true;
-            this.rb_administratif.Enabled = false;
-            this.rb_administratif.Location = new System.Drawing.Point(109, 37);
-            this.rb_administratif.Name = "rb_administratif";
-            this.rb_administratif.Size = new System.Drawing.Size(81, 17);
-            this.rb_administratif.TabIndex = 1;
-            this.rb_administratif.TabStop = true;
-            this.rb_administratif.Text = "Administratif";
-            this.rb_administratif.UseVisualStyleBackColor = true;
             // 
             // pn_productif
             // 
@@ -350,7 +343,7 @@
             this.pn_productif.Controls.Add(this.ser_idTextBox);
             this.pn_productif.Controls.Add(ser_designationLabel);
             this.pn_productif.Controls.Add(ser_idLabel);
-            this.pn_productif.Location = new System.Drawing.Point(22, 44);
+            this.pn_productif.Location = new System.Drawing.Point(274, 35);
             this.pn_productif.Name = "pn_productif";
             this.pn_productif.Size = new System.Drawing.Size(239, 100);
             this.pn_productif.TabIndex = 14;
@@ -362,16 +355,38 @@
             this.pn_administratif.Controls.Add(ser_capaciteLabel);
             this.pn_administratif.Controls.Add(this.ser_produitTextBox);
             this.pn_administratif.Controls.Add(ser_produitLabel);
-            this.pn_administratif.Location = new System.Drawing.Point(274, 44);
+            this.pn_administratif.Location = new System.Drawing.Point(22, 35);
             this.pn_administratif.Name = "pn_administratif";
             this.pn_administratif.Size = new System.Drawing.Size(239, 100);
             this.pn_administratif.TabIndex = 15;
+            // 
+            // bt_plusProductif
+            // 
+            this.bt_plusProductif.Location = new System.Drawing.Point(567, 35);
+            this.bt_plusProductif.Name = "bt_plusProductif";
+            this.bt_plusProductif.Size = new System.Drawing.Size(113, 23);
+            this.bt_plusProductif.TabIndex = 16;
+            this.bt_plusProductif.Text = "Ajouter productif";
+            this.bt_plusProductif.UseVisualStyleBackColor = true;
+            this.bt_plusProductif.Click += new System.EventHandler(this.bt_plusProductif_Click);
+            // 
+            // bt_plusAdministratif
+            // 
+            this.bt_plusAdministratif.Location = new System.Drawing.Point(567, 77);
+            this.bt_plusAdministratif.Name = "bt_plusAdministratif";
+            this.bt_plusAdministratif.Size = new System.Drawing.Size(113, 23);
+            this.bt_plusAdministratif.TabIndex = 17;
+            this.bt_plusAdministratif.Text = "Ajouter administratif";
+            this.bt_plusAdministratif.UseVisualStyleBackColor = true;
+            this.bt_plusAdministratif.Click += new System.EventHandler(this.bt_plusAdministratif_Click);
             // 
             // Fm_service
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bt_plusAdministratif);
+            this.Controls.Add(this.bt_plusProductif);
             this.Controls.Add(this.pn_administratif);
             this.Controls.Add(this.pn_productif);
             this.Controls.Add(this.gb_type);
@@ -400,7 +415,6 @@
 
         private System.Windows.Forms.BindingSource bs;
         private System.Windows.Forms.BindingNavigator bn;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -424,5 +438,7 @@
         private System.Windows.Forms.RadioButton rb_productif;
         private System.Windows.Forms.Panel pn_productif;
         private System.Windows.Forms.Panel pn_administratif;
+        private System.Windows.Forms.Button bt_plusProductif;
+        private System.Windows.Forms.Button bt_plusAdministratif;
     }
 }

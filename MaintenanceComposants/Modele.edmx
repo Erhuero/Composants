@@ -162,7 +162,7 @@
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="SceProductif" BaseType="EntityFramework.Service" >
-          <Property Name="ser_produit" Type="String" Nullable="false" />
+          <Property Name="ser_produit" Type="String" Nullable="true" />
           <Property Name="ser_capacite" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="SceAdministratif" BaseType="EntityFramework.Service" >
