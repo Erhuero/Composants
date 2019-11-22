@@ -26,29 +26,8 @@ namespace MaintenanceComposants
 
         }
 
-        private void lesEmployesBindingSource_CurrentChanged(object sender, EventArgs e) //CurrentChanged est l’événement par défaut pour BindingSource
-        {//CurrentChanged événement est déclenché chaque fois Current que la propriété est modifiée pour l’une des raisons suivantes
-         //Position actuelle des List modifications, les DataSource propriétés DataMember ou changent
-         //l’ajout ou de la suppression d’un élément avant l’élément actuel, 
-         //de la suppression ou du déplacement de l’élément actuel lui-même ou du déplacement d’un élément à la position actuelle.
-
-            if(bs.Current != null)
-            {
-                bd.SaveChanges();
-                if(bs.Current.GetType()==typeof(SceProductif))
-                {
-                    rb_productif.Checked = true;
-                    pn_productif.Visible = true;
-                    pn_administratif.Visible = true;
-                }
-
-                else
-                {
-                    rb_administratif.Checked = true;
-                    pn_productif.Visible = false;
-                    pn_administratif.Visible = true;
-                }
-            }
+        private void bs_CurrentChanged_1(object sender, EventArgs e) //CurrentChanged est l’événement par défaut pour BindingSource
+        {
         }
 
         private void rb_productif_CheckedChanged(object sender, EventArgs e)
@@ -123,6 +102,67 @@ namespace MaintenanceComposants
                     MessageBox.Show("Impossible de supprimer ce service, des employés y sont affectés !");
                 }
             }
+        }
+
+        private void ser_capaciteTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sceProductifBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bn_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gb_type_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_productif_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bs_CurrentChanged_2(object sender, EventArgs e)
+        {
+            if (bs.Current != null)
+            {
+                bd.SaveChanges();
+                if(bs.Current.GetType()==typeof(SceProductif))
+                {
+                    rb_productif.Checked = true;
+                    pn_productif.Visible = true;
+                    pn_administratif.Visible = false;
+
+                }
+                else
+                {
+                    rb_administratif.Checked = true;
+                    pn_productif.Visible = false;
+                    pn_administratif.Visible = true;
+                }
+            }
+        }
+
+        private void bs_employe_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gb_type_Enter_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

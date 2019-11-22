@@ -75,5 +75,10 @@ namespace MaintenanceComposants
                 }
             }
         }
+
+        public Service This
+        {
+            get { return this; }
+        }
     }
 }

@@ -37,5 +37,19 @@ namespace MaintenanceComposants
             fmen.ShowDialog();
 
         }
+
+        private void bt_grille_Click(object sender, EventArgs e)
+        {
+            Fm_employeGrille fempG = new Fm_employeGrille(bd);
+            fempG.ShowDialog();
+
+        }
+
+        private void bt_test_Click(object sender, EventArgs e)
+        {
+            test test = new test(bd);
+            test.ShowDialog();
+
+        }
     }
 }
